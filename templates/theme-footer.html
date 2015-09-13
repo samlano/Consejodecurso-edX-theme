@@ -1,0 +1,32 @@
+## mako
+<%! from django.utils.translation import ugettext as _ %>
+<%! from microsite_configuration.templatetags.microsite import platform_name %>
+<%namespace name='static' file='static_content.html'/>
+
+<footer class="global">
+  <div class="footer-container">
+    <ul class="links">
+      %if settings.MKTG_URL_LINK_MAP.get('ABOUT'):
+      <li>
+        <a id="about" href="http://mehackit.org/" target="_blank">${_("About Mehackit")}</a>
+      </li>
+      %endif
+      %if settings.MKTG_URL_LINK_MAP.get('FAQ'):
+      <li>
+        <a id="faq" href="${marketing_link('FAQ')}">${_("FAQ")}</a>
+      </li>
+      %endif
+      %if settings.MKTG_URL_LINK_MAP.get('TOS'):
+      <li>
+        <a href="${marketing_link('TOS')}">${_("Terms of Service and Privacy Policy")}</a>
+      </li>
+      %endif
+    </ul>
+    <p class="copyright">${_(u"© 2015 {platform_name}").format(platform_name=platform_name())}</p>
+    <div class="by-ionisx">
+      <a href="https://open.edx.org/">
+        <img src="https://files.edx.org/openedx-logos/edx-openedx-logo-tag.png" alt="Powered by Open EdX">
+      </a>
+    </div>
+  </div>
+</footer>
