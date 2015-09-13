@@ -6,7 +6,7 @@ module.exports = function (grunt) {
 
     var config = {
         src: 'src',
-        dest: '.',
+        dest: 'static',
         bower: 'bower_components'
     };
 
