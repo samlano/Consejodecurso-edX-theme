@@ -36,13 +36,23 @@
                 }
                 figure {
                     display: block;
-                    margin: 0;
-                    padding: 0;
-                    top: -80px;
                     z-index: 50;
+
+                    @media (max-width: @screen-md) {
+                            padding-top: 175px;
+                        }
+
+                        @media (max-width: @screen-sm) {
+                            padding-top: 130px;
+                        }
+
+                        @media (max-width: @screen-xs) {
+                            padding-top: 100px;
+                        }
+
                     img {
-                        margin-top: 175px;
                         width: 100px;
+                        margin: 5px;
                     }
                 }
                 .overlay {
