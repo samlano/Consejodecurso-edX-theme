@@ -17,17 +17,16 @@
 
 %>
 
+<%
+    import random
+%>
+
 <section class="home">
   <header>
     <div class="outer-wrapper">
       <div class="row hero text-center">
         <figure>
-          <img src="${static.url('themes/{theme_name}/images/mehackit-icon-1.png'.format(theme_name=settings.THEME_NAME))}">
-          <img src="${static.url('themes/{theme_name}/images/mehackit-icon-2.png'.format(theme_name=settings.THEME_NAME))}">
-          <img src="${static.url('themes/{theme_name}/images/mehackit-icon-3.png'.format(theme_name=settings.THEME_NAME))}">
-          <img src="${static.url('themes/{theme_name}/images/mehackit-icon-4.png'.format(theme_name=settings.THEME_NAME))}">
-          <img src="${static.url('themes/{theme_name}/images/mehackit-icon-5.png'.format(theme_name=settings.THEME_NAME))}">
-          <img src="${static.url('themes/{theme_name}/images/mehackit-icon-6.png'.format(theme_name=settings.THEME_NAME))}">
+          <img src="${static.url('themes/{theme_name}/images/mehackit-icon-{nbr}.png'.format(theme_name=settings.THEME_NAME, nbr=random.randint(1,6)))}">
         </figure>
         <h1>Discover creative technology with mehackit courses&#33;</h1>
         <div class="overlay dynamic-bg">&nbsp;</div>
