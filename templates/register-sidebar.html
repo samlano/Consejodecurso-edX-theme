@@ -23,16 +23,22 @@ from django.core.urlresolvers import reverse
 
 % endif
 
-
-<div class="cta cta-welcome">
-  <h3>${_("Welcome to {platform_name}").format(platform_name=platform_name)}</h3>
-  <p>${_("Registering gives you access to all of our current and future free courses. Our material is built for classes with a Mehackit instructor, but you are free to use these materials also outside the class room, with or without an instructor. Contact us if you wish to get help organizing a Mehackit course.").format(platform_name=platform_name)}</p>
-</div>
-
+## TODO: Use a %block tag or something to allow themes to
+##       override in a more generalizable fashion.
+% if not stanford_theme_enabled():
+  <div class="cta cta-welcome">
+    <h3>${_("Welcome to {platform_name}").format(platform_name=platform_name)}</h3>
+    <p>${_("Registering gives you access to all of our current and future free courses. Our material is built for classes with a Mehackit instructor, but you are free to use these materials also outside the class room, with or without an instructor. Contact us if you wish to get help organizing a Mehackit course.")</p>
+  </div>
+% endif
 
 <div class="cta cta-nextsteps">
   <h3>${_("Next Steps")}</h3>
-    <p>${_("As part of joining {platform_name}, you will receive an activation email.  You must click on the activation link to complete the process.  Don't see the email?  Check your spam folder and mark {platform_name} emails as 'not spam'.").format(platform_name=platform_name)}</p>
+  % if stanford_theme_enabled():
+    <p>${_("You will receive an activation email.  You must click on the activation link to complete the process.  Don't see the email?  Check your spam folder and mark emails from class.stanford.edu as 'not spam', since you'll want to be able to receive email from your courses.")}</p>
+  % else:
+    <p>${_("As part of joining {platform_name}, you will receive an activation email.  You must click on the activation link to complete the process.  Don't see the email?  Check your spam folder and mark {platform_name} emails as 'not spam'..").format(platform_name=platform_name)}</p>
+  % endif
 </div>
 
 % if settings.MKTG_URL_LINK_MAP.get('FAQ'):

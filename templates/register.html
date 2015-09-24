@@ -175,7 +175,7 @@
           <li class="field required text" id="field-name">
             <label for="name">${_('Full Name')}</label>
             <input id="name" type="text" name="name" value="${name}" placeholder="${_('example: Jane Doe')}" required aria-required="true" aria-describedby="name-tip" />
-            ## <span class="tip tip-input" id="name-tip">${_("Needed for any certificates you may earn")}</span>
+            <span class="tip tip-input" id="name-tip">${_("Not visible to others")}</span>
           </li>
           <li class="field required text" id="field-username">
             <label for="username">${_('Public Username')}</label>
@@ -229,7 +229,7 @@
           <li class="field required text" id="field-name">
             <label for="name">${_('Full Name')}</label>
             <input id="name" type="text" name="name" value="" placeholder="$_('example: Jane Doe')}" aria-describedby="name-tip" />
-            <span class="tip tip-input" id="name-tip">${_("Needed for any certificates you may earn")}</span>
+            <span class="tip tip-input" id="name-tip">${_("Not visible to others")}</span>
           </li>
 
           % endif
@@ -330,7 +330,7 @@
 
             % if has_extauth_info is UNDEFINED or ask_for_tos :
             <div class="field required checkbox" id="field-tos">
-              <input id="tos-yes" type="checkbox" name="terms_of_service" value="true" required aria-required="true" />
+              <input id="tos-yes" type="checkbox" name="terms_of_service" value="true" required aria-required="true" checked/>
               <label for="tos-yes">${_('I agree to the {link_start}Terms of Service{link_end}').format(
                 link_start='<a href="{url}" class="new-vp" tabindex="-1">'.format(url=marketing_link('TOS')),
                 link_end='</a>')}</label>
