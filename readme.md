@@ -1,4 +1,4 @@
-# Mehackit edx-theme
+# Consejodecurso edx-theme
 
 Based on [IONISx theme](https://github.com/IONISx/edx-theme)
 
